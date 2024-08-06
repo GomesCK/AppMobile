@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "AppArthec",
+    "slug": "AppArthec",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/P-removebg-preview.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/P-removebg-preview.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#3d0c02"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/P-removebg-preview.png",
+        "backgroundColor": "#3d0c02"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}
