@@ -1,8 +1,11 @@
-import { View } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { View , TouchableOpacity} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {SpaceGrotesk_300Light, SpaceGrotesk_700Bold, useFonts} from '@expo-google-fonts/space-grotesk';
+import Texto from './src/componentes/Texto';
+import { Audio } from 'expo-av';
 
 import mock from './src/mocks/produto';
 import mock1 from './src/mocks/sobree';
@@ -63,6 +66,43 @@ function TabMenu(){
     </tab.Navigator>
 }
 
+function MenuAudio(){
+
+  const [audioStatus, setAudioStatus] = useState(false);
+  const [sound, setSound] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      console.log('status', audioStatus);
+      if (audioStatus) {
+        setLoading(true);
+        const { sound } = await Audio.Sound.createAsync(require('./assets/MEME - calça MAIS 300 REAIS_TGF4LWrW3qg.mp3'));
+        setSound(sound);
+        try {
+          await sound.playAsync();
+        } catch (e) {
+          console.log(e);
+        }
+        setLoading(false);
+      } else {
+        if (sound) {
+          try {
+            await sound.stopAsync();
+            await sound.unloadAsync();
+          } catch (e) {
+            console.log(e);
+          }
+        }
+      }
+    })();
+  }, [audioStatus]);
+
+  return <TouchableOpacity onPress={() => {if(!loading){setAudioStatus(!audioStatus);}}}>
+    <Texto>🎶On/Off</Texto>
+  </TouchableOpacity>
+}
+
 export default function App() {
 
   const [ fonteCarregada ] = useFonts ({"SpaceGroteskRegular": SpaceGrotesk_300Light,
@@ -71,6 +111,7 @@ export default function App() {
   return<View/>}
   return <NavigationContainer>
     <TabMenu/>
+    <MenuAudio/>
   </NavigationContainer>
 
   
