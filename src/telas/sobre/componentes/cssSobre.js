@@ -17,6 +17,11 @@ const styles = StyleSheet.create({
       width: 200,
       height: 200,
     },
+    video: {
+      alignSelf: 'center',
+      width: 350,
+      height: 275,
+    },
   });
 
   export default styles;

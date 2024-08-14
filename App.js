@@ -103,6 +103,8 @@ function MenuAudio(){
   </TouchableOpacity>
 }
 
+
+
 export default function App() {
 
   const [ fonteCarregada ] = useFonts ({"SpaceGroteskRegular": SpaceGrotesk_300Light,
