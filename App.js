@@ -3,10 +3,9 @@ import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { SpaceGrotesk_300Light, SpaceGrotesk_700Bold, useFonts } from '@expo-google-fonts/space-grotesk';
+// import { SpaceGrotesk_300Light, SpaceGrotesk_700Bold, useFonts } from '@expo-google-fonts/space-grotesk';
 import Texto from './src/componentes/Texto';
 import { Audio } from 'expo-av';
-import { Camera, CameraType } from 'expo-camera';
 
 import mock from './src/mocks/produto';
 import mock1 from './src/mocks/sobree';
@@ -116,38 +115,13 @@ function MenuAudio() {
 
 export default function App() {
 
-  const [type, setType] = useState(CameraType.back);
-  const [permission, requestPermission] = Camera.useCameraPermissions();
-
-  const [fonteCarregada] = useFonts({
-    "SpaceGroteskRegular": SpaceGrotesk_300Light,
-    "SpaceGroteskBold": SpaceGrotesk_700Bold
-  });
-
-  
-
-  if (!permission) {
-    // Camera permissions are still loading
-    return <View />;
-  }
-  if (!fonteCarregada) {
-    return <View />
-  }
-  function toggleCameraType() {
-    setType(current => (current === CameraType.back ? CameraType.front : CameraType.back));
-  }
+  // const [fonteCarregada] = useFonts({
+  //   "SpaceGroteskRegular": SpaceGrotesk_300Light,
+  //   "SpaceGroteskBold": SpaceGrotesk_700Bold
+  // });  
   return <NavigationContainer>
     <TabMenu />
     <MenuAudio />
-    <View style={styles.container}>
-      <Camera style={styles.camera} type={type}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={toggleCameraType}>
-            <Text style={styles.text}>Flip Camera</Text>
-          </TouchableOpacity>
-        </View>
-      </Camera>
-    </View>
   </NavigationContainer>
   /*return (
     <View style={styles.container}>
@@ -157,30 +131,4 @@ export default function App() {
     </View>
   );*/
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  camera: {
-    flex: 1,
-  },
-  buttonContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: 'transparent',
-    margin: 64,
-  },
-  button: {
-    flex: 1,
-    alignSelf: 'flex-end',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-});
 

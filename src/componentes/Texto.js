@@ -13,12 +13,12 @@ export default function Texto({children, style}){
 }
 
 const estilos = StyleSheet.create({
-    texto: {
-        fontFamily: "SpaceGroteskRegular",
-        fontWeight: 'normal',
-    },
-    textoNegrito: {
-        fontFamily: "SpaceGroteskBold",
-        fontWeight: 'normal',
-    }
+    // texto: {
+    //     fontFamily: "SpaceGroteskRegular",
+    //     fontWeight: 'normal',
+    // },
+    // textoNegrito: {
+    //     fontFamily: "SpaceGroteskBold",
+    //     fontWeight: 'normal',
+    // }
 })
