@@ -1,8 +1,8 @@
 import React from "react";
 import { View, StatusBar, Image, Alert } from 'react-native';
 
-import logoLogo from "./../../../../assets/gravatas.jpg"
-import Texto from "../../../componentes/Texto";
+// import logoLogo from "./../../../../assets/gravatas.jpg"
+// import Texto from "../../../componentes/Texto";
 import Add from "../../../componentes/Botao";
 import css from "./cssProd"
 

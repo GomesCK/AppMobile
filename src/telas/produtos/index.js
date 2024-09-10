@@ -24,7 +24,7 @@ export default function Index({topo, detalhes,itens}) {
         
             data={itens.lista}
             renderItem={Item}
-            keyExtractor={({nome})=>{nome}}
+            // keyExtractor={({nome})=>{nome}}
             ListHeaderComponent={() =>{
                 return<>
                     <Card>
