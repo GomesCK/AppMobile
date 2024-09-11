@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, View, TouchableOpacity, TextInput, Text, PixelRatio, Button } from 'react-native';
-// import { Card } from "react-native-paper";
 import { Camera, CameraType } from 'expo-camera/legacy';
 import { useNavigation } from '@react-navigation/native';
 
@@ -125,4 +124,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color:'red'
     }
+
 });
