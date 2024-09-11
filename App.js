@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import { SpaceGrotesk_300Light, SpaceGrotesk_700Bold, useFonts } from '@expo-google-fonts/space-grotesk';
 import Texto from './src/componentes/Texto';
@@ -15,6 +16,7 @@ import Prod from './src/telas/produtos/';
 import Sobri from './src/telas/sobre/';
 import List from './src/telas/listProd/';
 import Perfi from './src/telas/perfil/';
+import CameraScreen from './src/telas/Camera/';
 
 function Produ() {
   return <Prod {...mock} />
@@ -25,11 +27,21 @@ function Sob() {
 function ListP() {
   return <List {...mock2} />
 }
-function Perfil() {
-  return <Perfi {...mock3} />
+// function Perfil() {
+//   return <Perfi {...mock3} />
+// }
+
+function PerfilStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Perfil" component={Perfi} />
+      <Stack.Screen name="Camera" component={CameraScreen} />
+    </Stack.Navigator>
+  );
 }
 
 const tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 function TabMenu() {
   return <tab.Navigator
@@ -72,7 +84,10 @@ function TabMenu() {
     <tab.Screen name="Lista de produtos" component={ListP} />
     <tab.Screen name="Lista de Desejos" component={Produ} />
     <tab.Screen name="Sobre nós" component={Sob} />
-    <tab.Screen name="Perfil" component={Perfil} />
+    <tab.Screen name="Perfil" component={PerfilStack} />
+    {/* <tab.Screen name="Perfil" component={Perfil} />
+    <tab.Screen name="Câmera" component={CameraScreen} /> */}
+
   </tab.Navigator>
 }
 
