@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, View, TouchableOpacity, TextInput, Text, PixelRatio, Button } from 'react-native';
 // import { Card } from "react-native-paper";
-import { Camera, CameraType } from 'expo-camera/legacy';
+import { Camera, CameraType } from 'expo-camera';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 // import Detalhes from "./componentes/Detalhes";
@@ -30,16 +31,23 @@ export default function Perfil() {
     function toggleCameraType() {
         setType(current => (current === CameraType.back ? CameraType.front : CameraType.back));
     }
+
+
     return (
         <View style={styles.container}>
             <Camera style={styles.camera} type={type}>
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.button} onPress={toggleCameraType}>
-                        <Text style={styles.text}>Virar Camera</Text>
+                    <TouchableOpacity style={styles.cameraVirarBotao} onPress={toggleCameraType}>
+                        <Ionicons name="reload" size={25} color="red" />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.cameraBotao} >
+                        <Ionicons name="camera" size={25} color="red" />
                     </TouchableOpacity>
                 </View>
-            </Camera>           
+            </Camera>
+
         </View>
+
     );
 }
 
@@ -81,26 +89,36 @@ const styles = StyleSheet.create({
         borderRadius: 15,
     },
     container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  camera: {
-    flex: 1,
-  },
-  buttonContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: 'transparent',
-    margin: 64,
-  },
-  button: {
-    flex: 1,
-    alignSelf: 'flex-end',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white',
-  },
+        flex: 1,
+        justifyContent: 'center',
+    },
+    camera: {
+        flex: 1,
+    },
+    buttonContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        backgroundColor: 'transparent',
+        margin: 64,
+    },
+    button: {
+        flex: 1,
+        alignSelf: 'flex-end',
+        alignItems: 'center',
+    },
+    text: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: 'white',
+    },
+    cameraVirarBotao: {
+        position: 'absolute',
+        bottom: 10,
+        left: 10,
+    },
+    cameraBotao: {
+        position: 'absolute',
+        bottom: 10,
+        right: 10,
+    },
 });

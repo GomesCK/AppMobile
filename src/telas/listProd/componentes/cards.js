@@ -1,6 +1,7 @@
 import React from "react";
 import {View,ScrollView,Image,Alert} from 'react-native';
 import { Button, Card, Text } from 'react-native-paper';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import img from "./../../../../assets/gravatas.jpg"
 import img1 from "./../../../../assets/Gravatas2.jpg"
@@ -11,7 +12,23 @@ import img3 from "./../../../../assets/GravataseT.jpg"
 import Logo from "./../../../../assets/P-removebg-preview.png"
 import css from "./cssProd"
 
-export default function Detalhes() { 
+export default function Detalhes() { //{item:{nome,imagem,descricao}}
+    
+    async function addListaDesejos(id, nome, imagem) {
+        const addProduto = [{
+            id: id,
+            nome: nome,
+            imagem: imagem,
+        }]
+        
+        //
+        const listaDesejosSalva = await AsyncStorage.getItem('ListaDesejos');
+        if(listaDesejosSalva == null){
+            const listaDesejosAtualizada = JSON.stringify(addProduto);
+
+            await AsyncStorage.setItem('ListaDesejos', listaDesejosAtualizada);
+        }
+    }
     return <>
         <ScrollView >
             <View style={css.geral}>

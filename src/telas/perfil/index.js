@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, View, TouchableOpacity, TextInput, Text, PixelRatio, Button } from 'react-native';
 // import { Card } from "react-native-paper";
-import { Camera, CameraType } from 'expo-camera/legacy';
+// import { Camera, CameraType } from 'expo-camera/legacy';
 import { useNavigation } from '@react-navigation/native';
+import { Card } from 'react-native-paper';
 
 
 // import Detalhes from "./componentes/Detalhes";
@@ -15,6 +16,17 @@ export default function Perfil() {
     const [sobrenomeuser, mudaSobrenome] = React.useState('');
     const [cidadeuser, mudaCidade] = React.useState('');
     const [profiuser, mudaProfi] = React.useState('');
+    const [capturedImage, setCapturedImage] = useState(null);
+    const cameraRef = useRef(null);
+
+    async function tirarFoto() {
+        //Verifica se a foto foi tirada
+        if(cameraRef){
+            const photo = await cameraRef.current.takePictureAsync();
+            console.log("A foto foi tirada!", photo.uri);
+            setCapturedImage(photo.uri);
+        }
+    }
 
     return (
         <View style={styles.container}>            
@@ -59,6 +71,16 @@ export default function Perfil() {
                     />
                 </View>
             </View>
+            <Card mode='elevated'>
+                <Card.Content>
+                    {//Verifica se a foto foi tirada
+                        capturedImage &&
+                        <View style={styles.fotoTiradaContainer}>
+                            <Image source={{uri: capturedImage}} style={{flex:1}}/>
+                        </View>
+                    }
+                </Card.Content>
+            </Card>
 
             <TouchableOpacity style={styles.btsalvar}>
                 <Text>SALVAR INFORMAÇÕES</Text>
@@ -124,5 +146,11 @@ const styles = StyleSheet.create({
         fontSize: 17,
         fontWeight: 'bold',
         color:'red'
+    },
+    fotoTiradaContainer: {
+        width: '50%',
+        height: '25%',
+        alignSelf: 'center',
+        borderRadius: '10',
     }
 });
