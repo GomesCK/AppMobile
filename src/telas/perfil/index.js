@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, View, TouchableOpacity, TextInput, Text, PixelRatio, Button } from 'react-native';
-<<<<<<< HEAD
 // import { Card } from "react-native-paper";
 // import { Camera, CameraType } from 'expo-camera/legacy';
-=======
-import { Camera, CameraType } from 'expo-camera/legacy';
->>>>>>> ea5218122e074b38eea33bb3e1cb0a8b09047f95
 import { useNavigation } from '@react-navigation/native';
 import { Card } from 'react-native-paper';
 
@@ -157,5 +153,4 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         borderRadius: '10',
     }
-
 });
