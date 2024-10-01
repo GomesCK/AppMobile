@@ -17,6 +17,7 @@ import Sobri from './src/telas/sobre/';
 import List from './src/telas/listProd/';
 import Perfi from './src/telas/perfil/';
 import CameraScreen from './src/telas/Camera/';
+import ListaDesejos from './src/telas/ListaDesejos';
 
 function Produ() {
   return <Prod {...mock} />
@@ -82,7 +83,7 @@ function TabMenu() {
     })}>
     <tab.Screen name="Produtos" component={Produ} />
     <tab.Screen name="Lista de produtos" component={ListP} />
-    <tab.Screen name="Lista de Desejos" component={Produ} />
+    <tab.Screen name="Lista de Desejos" component={ListaDesejos} />
     <tab.Screen name="Sobre nós" component={Sob} />
     <tab.Screen name="Perfil" component={PerfilStack} />
     {/* <tab.Screen name="Perfil" component={Perfil} />
