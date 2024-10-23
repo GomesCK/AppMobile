@@ -8,19 +8,19 @@ const card = {
         lista: [
             {
                 id: 1,
-                titulo: "Pastel de Carne",
+                titulo: "Gravata 1",
                 descricao:"Pastel recheado com carne de primeira qualidade",
                 imagem: img,
             },
             {
                 id: 2,
-                titulo: "Pastel de Frango c/ Catupiry",
+                titulo: "Gravata 2",
                 descricao:"Pastel recheado com frango e catupiry excelência",
                 imagem: img1,
             },
             {
                 id: 3,
-                titulo: "Pastel de Carne Seca",
+                titulo: "Gravata 4",
                 descricao:"Pastel recheado com Carne Seca e quiejo delicioso",
                 imagem: img2,
             },

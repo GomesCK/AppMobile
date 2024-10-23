@@ -17,7 +17,7 @@ import Sobri from './src/telas/sobre/';
 import List from './src/telas/listProd/';
 import Perfi from './src/telas/perfil/';
 import CameraScreen from './src/telas/Camera/';
-import ListaDesejos from './src/telas/ListaDesejos';
+import ListaDesejos from './src/telas/ListaDesejos/';
 
 function Produ() {
   return <Prod {...mock} />
