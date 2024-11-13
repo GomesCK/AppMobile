@@ -1,42 +1,30 @@
-import React, {useEffect, useState} from "react";
-import {View, StatusBar } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, { useEffect, useState } from "react";
+import { View, StatusBar, FlatList } from "react-native";
+import Texto from "../../componentes/Texto"; // Ajuste o caminho conforme necessário
+import Menu from "./componentes/cards"; // Ajuste o caminho conforme necessário
+import card from "../../mocks/cardList"; // Ajuste o caminho conforme necessário
 
-import Texto from '../../componentes/Texto';
-import { FlatList } from "react-native";
+export default function Index() {
+    const [listData, setListData] = useState([]);
 
-import Menu from "./componentes/cards";
-
-
-export default function Index (){
-
-    const [listData, setListData]=useState([]);
-
-    //Capturar os dados do AsyncStorage
-    const loadListData = async () => {
-        const storedObjectJSON = await AsyncStorage.getItem('ListaDesejos');
-        if(storedObjectJSON !== null) {
-            const storedObject = JSON.parse(storedObjectJSON);
-            setListData(storedObject);
-        }
-    }
-
-    //Busca a lista de desejos quando montar o componente
+    // Carrega os dados de produtos a partir do objeto 'card'
     useEffect(() => {
-        loadListData();
+        setListData(card.infos.lista); // Usando os dados exportados do arquivo cardData
     }, []);
-    
-    return <View>
-        <StatusBar/>
-        <Texto> Lista de Desejos</Texto>
-        <Texto> Estes são as comidas adicionadas na sua Lista de Desejos.</Texto>
 
-        <FlatList 
-            data={listData}
-            renderItem={({item}) =>  <Menu {...item}/>}
-            keyExtractor={({id}) => String(id) }
-            numColumns={2} 
-        />
+    return (
+        <View style={{ flex: 1 }}>
+            <StatusBar barStyle="dark-content" />
+            <Texto style={{ fontSize: 24, fontWeight: "bold", textAlign: "center", margin: 20 }}>
+                Lista de Gravatas
+            </Texto>
 
-    </View>
+            <FlatList
+                data={listData} // Aqui você passa os dados para o FlatList
+                renderItem={({ item }) => <Menu item={item} />} // Passando 'item' para o componente Menu
+                keyExtractor={({ id }) => String(id)} // Garantindo que o 'id' seja único
+                numColumns={2} // Para exibir 2 colunas
+            />
+        </View>
+    );
 }

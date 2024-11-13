@@ -7,7 +7,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import css from "./cssProd";
 import Texto from '../../../componentes/Texto';
 
-export default function Menu({ item: { titulo, descricao, imagem } }) {
+export default function Menu({ item: {id, titulo, descricao, imagem } }) {
 
     //Função para guardar a Lista de Desejos 
     async function addListaDesejos(id, titulo, imagem) {
@@ -45,14 +45,13 @@ export default function Menu({ item: { titulo, descricao, imagem } }) {
         }
     }
     return <View style={css.geral}>
-        <Image style={css.ar} source={imagem} />
+        <Image style={css.ar} />
         <View style={css.linha1}>
             <Card style={css.Cards}>
-                <Card.Title title="Gravatas coloridas" subtitle="Kit com 4 gravatas" />
+                {/* <Card.Title title="Gravatas coloridas" subtitle="Kit com 4 gravatas" /> */}
                 <Card.Content>
                     <Texto style={css.name}>{titulo}</Texto>
                     <Texto style={css.pre}>{descricao}</Texto>
-                    <Texto style={css.ingre}>{ingredientes}</Texto>
                 </Card.Content>
                 <Card.Cover style={css.im} source={imagem} />
                 <Card.Actions>

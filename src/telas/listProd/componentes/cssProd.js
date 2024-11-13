@@ -29,10 +29,10 @@ const styles = StyleSheet.create({
     titulo: {
       fontSize: 20,
     },
-      im: {
-         widthfull: 100,
-         justifyContent: 'center',
-         width: "100%",
+    im: {
+       widthfull: 100,
+       justifyContent: 'center',
+       width: "100%",
         
      },
     card: {

@@ -9,25 +9,25 @@ const card = {
             {
                 id: 1,
                 titulo: "Gravata 1",
-                descricao:"Pastel recheado com carne de primeira qualidade",
+                descricao:"Diversas gravatas coloridas",
                 imagem: img,
             },
             {
                 id: 2,
                 titulo: "Gravata 2",
-                descricao:"Pastel recheado com frango e catupiry excelência",
+                descricao:"Diversas gravatas coloridas",
                 imagem: img1,
             },
             {
                 id: 3,
                 titulo: "Gravata 4",
-                descricao:"Pastel recheado com Carne Seca e quiejo delicioso",
+                descricao:"Diversas gravatas coloridas",
                 imagem: img2,
             },
             {
                 id: 4,
-                titulo: "Pastel de Calabresa c/ Queijo",
-                descricao:"Pastel recheado com Calabresa e queijo sem igual",
+                titulo: "Gravata 3",
+                descricao:"Diversas gravatas coloridas",
                 imagem: img3,
             },
         ]
