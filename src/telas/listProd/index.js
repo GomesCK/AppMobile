@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { View, StatusBar, FlatList } from "react-native";
+import { View, StatusBar, FlatList, Image } from "react-native";
 import Texto from "../../componentes/Texto"; // Ajuste o caminho conforme necessário
 import Menu from "./componentes/cards"; // Ajuste o caminho conforme necessário
 import card from "../../mocks/cardList"; // Ajuste o caminho conforme necessário
+
+import Logo from "./../../../assets/P-removebg-preview.png"
+import css from "./componentes/cssProd";
 
 export default function Index() {
     const [listData, setListData] = useState([]);
@@ -15,9 +18,12 @@ export default function Index() {
     return (
         <View style={{ flex: 1 }}>
             <StatusBar barStyle="dark-content" />
-            <Texto style={{ fontSize: 24, fontWeight: "bold", textAlign: "center", margin: 20 }}>
-                Lista de Gravatas
-            </Texto>
+            <View style={css.Backgroud}>
+                <Image style={css.ar} source={Logo} />
+                {/* <Texto style={{ fontSize: 24, fontWeight: "bold", textAlign: "center", margin: 20 }}>
+                    Lista de Gravatas
+                </Texto>                 */}
+            </View>
 
             <FlatList
                 data={listData} // Aqui você passa os dados para o FlatList

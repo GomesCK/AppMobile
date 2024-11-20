@@ -1,19 +1,33 @@
 import { StyleSheet } from "react-native";
 
-const style = StyleSheet.create({
-    listaContainer: {
-        flex: 1,
-    },
+const styles = StyleSheet.create({
+  geral:{
+    backgroundColor: '#3d0c02',
+    // alignItems:'center',      
+  },
     cardContainer: {
-        width: '30%',
+        width: '50%',
+        height: 250,
+        backgroundColor: '#3d0c02'
     },
+    Backgroud:{
+        backgroundColor: '#3d0c02',
+        alignItems:'center',      
+      },
     imagem: {
-        width: '30%',
-        height: '60%',
+        width: 150,
+        height: 150,
         alignSelf: 'center',
     },
     card: {
         width: '90%',
-        // alignSelf: 
-    }
+        alignSelf: 'center',
+        backgroundColor: '#A2700F',
+    },
+    ar:{
+      width: 200,
+      height: 200,
+    },
 })
+
+export default styles;

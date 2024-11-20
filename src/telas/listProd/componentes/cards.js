@@ -6,6 +6,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import css from "./cssProd";
 import Texto from '../../../componentes/Texto';
+import Logo from "./../../../../assets/P-removebg-preview.png"
 
 export default function Menu({ item: {id, titulo, descricao, imagem } }) {
 
@@ -45,7 +46,8 @@ export default function Menu({ item: {id, titulo, descricao, imagem } }) {
         }
     }
     return <View style={css.geral}>
-        <Image style={css.ar} />
+        {/* <Image style={css.ar} source={Logo}/> */}
+        
         <View style={css.linha1}>
             <Card style={css.Cards}>
                 {/* <Card.Title title="Gravatas coloridas" subtitle="Kit com 4 gravatas" /> */}

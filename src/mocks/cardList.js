@@ -2,8 +2,12 @@ import img from "./../../assets/gravatas.jpg"
 import img1 from "./../../assets/Gravatas2.jpg"
 import img2 from "./../../assets/GravatasB.jpg"
 import img3 from "./../../assets/GravataseT.jpg"
+import Logo from "./../../assets/P-removebg-preview.png"
 
 const card = {
+    logo:{
+        log: Logo
+    },
     infos: {
         lista: [
             {
