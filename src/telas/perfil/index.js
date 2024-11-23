@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, View, TouchableOpacity, TextInput, Text, PixelRatio, Button } from 'react-native';
+import { FlatList, StyleSheet, View, TouchableOpacity, TextInput, Text, PixelRatio, Button } from 'react-native';
 // import { Card } from "react-native-paper";
 // import { Camera, CameraType } from 'expo-camera/legacy';
 import { useNavigation } from '@react-navigation/native';
@@ -27,7 +27,12 @@ export default function Perfil() {
             setCapturedImage(photo.uri);
         }
     }
+    return <>
 
+        
+
+    <FlatList 
+        ListHeaderComponent={() =>{
     return (
         <View style={styles.container}>            
             <View style={styles.fundouser}></View>
@@ -90,6 +95,8 @@ export default function Perfil() {
             </TouchableOpacity>
         </View>
     );
+}}/> 
+    </>
 }
 
 const styles = StyleSheet.create({
