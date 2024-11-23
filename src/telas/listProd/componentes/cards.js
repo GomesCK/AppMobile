@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, StyleSheet, Alert, Touchable } from "react-native";
+import { View, Image, StyleSheet, Alert, Touchable, Vibration } from "react-native";
 import { Avatar, Button, Card } from "react-native-paper";
 import { TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage"; 
@@ -18,6 +18,7 @@ export default function Menu({ item: {id, titulo, descricao, imagem } }) {
             titulo: titulo,
             imagem: imagem,
         }];
+        
 
         //Verifica se o AsyscStorage está populado
         const listaDesejosSalva = await AsyncStorage.getItem('ListaDesejos');
@@ -44,6 +45,7 @@ export default function Menu({ item: {id, titulo, descricao, imagem } }) {
             console.log("Mais um produto na lista");
             console.log(listaDesejosAtualizada);
         }
+        Vibration.vibrate();
     }
     return <View style={css.geral}>
         {/* <Image style={css.ar} source={Logo}/> */}
